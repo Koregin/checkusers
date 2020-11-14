@@ -15,11 +15,11 @@ import math
 def check_speed(ip):
     server_ip = "10.3.0.209"
     port = "22"
-    user = "mnemonic"
-    user_pw = "ktyjxrfvjz"
-    root_pw = "ybrnjrhjvtyfc"
-    bgp_pw = "1081978"
-    bgp_en_pw = "ybrnjrhjvtyfc"
+    user = "username"
+    user_pw = "password"
+    root_pw = "rootpassword"
+    bgp_pw = "password"
+    bgp_en_pw = "enablepassword"
     try:
         #Login on server
         ch = pexpect.spawn ('ssh -o \"StrictHostKeyChecking no\" %s@%s' % (user, server_ip))
@@ -146,7 +146,7 @@ def nfdump2(ip):
     return nfout, downtotal, uptotal
 
 if __name__ == '__main__':
-    down,d_sec,up,u_sec, status = check_speed('91.237.209.236')
+    down,d_sec,up,u_sec, status = check_speed('ip_address')
     print(down,d_sec,up,u_sec, status)
-    down,d_sec,up,u_sec, status = check_speed('37.230.148.124')
+    down,d_sec,up,u_sec, status = check_speed('ip_address')
     print(down,d_sec,up,u_sec, status)

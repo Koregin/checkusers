@@ -34,10 +34,10 @@ def checkpolicy(ip):
         #gw = gw[:-1]
         #Check ip enter to network
         if IPAddress(ip) in IPNetwork(net):
-            if gw == '192.168.16.5': #Gateway Cisco 4948 Bykova13
+            if gw == '10.10.10.10': #Gateway Cisco 4948 Bykova13
                 policy = 'ip policy route-map INET_CHANNEL2'
                 break
-            elif gw == '192.168.16.4': #Gateway Cisco 4948 Bykova13
+            elif gw == '10.10.10.11': #Gateway Cisco 4948 Bykova13
                 policy = 'ip policy route-map Mikrotik_Main'
                 break
             else:
@@ -150,7 +150,7 @@ else:
 errors = 'No'
 
 #DB Abonents connect and select
-db = pymysql.connect(host='10.3.0.36', user='dbusers', passwd='dbusers', db='abonents', use_unicode='True', charset='utf8')
+db = pymysql.connect(host='10.10.10.14', user='admin', passwd='admin', db='abonents', use_unicode='True', charset='utf8')
 cursor = db.cursor()
 query = 'select full_name as username, flat, port_number, vlan, INET_NTOA(u.ip) as local_ip, \
                     INET_NTOA(u.ip2) as local_ip2, INET_NTOA(u.ip3) as local_ip3, INET_NTOA(u.ip4) as local_ip4, \
@@ -391,7 +391,7 @@ else:
     print ("<br><b>Проверка каналов не производится</b>")
 
 #UTM5_521007 connect and select
-db = pymysql.connect(host='192.168.11.4', user='utm5', passwd='utm5', db='UTM5_521007', use_unicode='True', charset='utf8')
+db = pymysql.connect(host='10.10.10.15', user='admin', passwd='admin', db='dbase', use_unicode='True', charset='utf8')
 cursor = db.cursor()
 
 query = 'SELECT ip_groups.mac, convert(cast(convert(tariffs.`name` using latin1) as binary) using utf8), \
@@ -461,8 +461,8 @@ else:
 """
 sm = "10.3.0.240"
 user = "pcube"
-user_pw = "Ybrnjrhjvtyfc"
-#real_ip = "31.130.123.180"
+user_pw = "password"
+#
 
 #Check current tarif on SCE
 child = pexpect.spawn ('ssh -o \"StrictHostKeyChecking no\" %s@%s' % (user, sm))

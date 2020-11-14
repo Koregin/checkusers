@@ -15,12 +15,11 @@ import re
 
 ###################################################################################################
 #Включение и выключение порта на коммутаторе доступа
-#switch_ip = "10.0.9.200"
-#port = "22"
+#
 #Получение параметров с коммутаторов Cisco
 def cisco2950(switch_ip, vlan, port, user_id):
-    switch_pw = "1081978"
-    switch_en_pw = "1081978kevltd"
+    switch_pw = "password"
+    switch_en_pw = "enable_password"
     if switch_ip is not None and port is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.expect ('Password: ')
@@ -127,9 +126,9 @@ def cisco2950(switch_ip, vlan, port, user_id):
 #Получение параметров с коммутаторов Orion
 def orion(switch_ip, vlan, port, user_id):
     model = "Alpha-A28F"
-    login = "mnemonic"
-    switch_pw = "ktyjxrfvjz"
-    switch_en_pw = "1081978kevltd"
+    login = "username"
+    switch_pw = "password"
+    switch_en_pw = "enable_password"
     if switch_ip is not None and port is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.expect ('Login:')
@@ -209,8 +208,8 @@ def orion(switch_ip, vlan, port, user_id):
 def dlink(switch_ip, vlan, port, user_id):
     model = "Dlink-DES-3200-28F"
     login = "admin"
-    switch_pw = "1081978"
-    switch_en_pw = "1081978kevltd"
+    switch_pw = "password"
+    switch_en_pw = "enable_password"
     if switch_ip is not None and port is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.expect ('UserName:')
@@ -302,8 +301,8 @@ def dlink(switch_ip, vlan, port, user_id):
 #Get parameters from SNR' switches
 def snr(switch_ip, vlan, port, user_id):
     login = "admin\r\n"
-    switch_pw = "1081978\r\n"
-    switch_en_pw = "1081978kevltd"
+    switch_pw = "password\r\n"
+    switch_en_pw = "enablepassword"
     if switch_ip is not None and port is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.expect ('login:')
@@ -383,8 +382,8 @@ def snr(switch_ip, vlan, port, user_id):
 
 def bdcom(switch_ip, mac_onu):
     login = "service"
-    switch_pw = "1081978"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     if switch_ip is not None and mac_onu is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.setwinsize(100,100)
@@ -444,7 +443,7 @@ def bdcom(switch_ip, mac_onu):
 
 def zyxel(switch_ip, port):
     login = "admin"
-    switch_pw = "1081978kevltd"
+    switch_pw = "password"
     if switch_ip is not None and port is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.setwinsize(100,100)
@@ -491,8 +490,8 @@ def zyxel(switch_ip, port):
 def cdata(switch_ip, mac_onu, vlan):
     status = 1    # 1 - всё в порядке, 0 - ONU не сконфигурирована правильно
     login = "service\r\n"
-    switch_pw = "1081978\r\n"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password\r\n"
+    switch_en_pw = "enablepassword"
     if switch_ip is not None and mac_onu is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.setwinsize(100,100)

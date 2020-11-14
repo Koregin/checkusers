@@ -9,8 +9,8 @@ def change_loopback(aggregator, vlan, loopback):
     switch_ip = aggregator
     port = "22"
     user = "service"
-    switch_pw = "1081978"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     #
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Username: ')
@@ -34,8 +34,8 @@ def create_policy(aggregator, vlan, policy):
     switch_ip = aggregator
     port = "22"
     user = "service"
-    switch_pw = "1081978"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     #
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Username: ')
@@ -59,8 +59,8 @@ def change_helper(aggregator, vlan, helper, new_helper):
     switch_ip = aggregator
     port = "22"
     user = "service"
-    switch_pw = "1081978"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     #
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Username: ')
@@ -87,8 +87,8 @@ def create_int(aggregator, vlan, loopback, helper_address, policy):
     switch_ip = aggregator
     port = "22"
     user = "service"
-    switch_pw = "1081978"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     #
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Username: ')
@@ -116,8 +116,8 @@ def clear_counters(switch, swport):
     """Clear errors counters on port
     """
     switch_ip = switch
-    switch_pw = "1081978"
-    switch_en_pw = "1081978kevltd"
+    switch_pw = "password"
+    switch_en_pw = "enablepassword"
     ###
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Password: ')
@@ -133,8 +133,8 @@ def offonport(switch, swport):
     """Disable|Enable port
     """
     switch_ip = switch
-    switch_pw = "1081978"
-    switch_en_pw = "1081978kevltd"
+    switch_pw = "password"
+    switch_en_pw = "enable_password"
     ###
     child = pexpect.spawn ('telnet '+switch_ip)
     child.expect ('Password: ')
@@ -153,8 +153,8 @@ def offonport(switch, swport):
 
 def cdata_apply_onu(switch_ip, mac_onu, vlan):
     login = "service\r\n"
-    switch_pw = "1081978\r\n"
-    switch_en_pw = "ybrnjrhjvtyfc"
+    switch_pw = "password\r\n"
+    switch_en_pw = "enable_password"
     if switch_ip is not None and mac_onu is not None:
         child = pexpect.spawn ('telnet '+switch_ip)
         child.setwinsize(100,100)
